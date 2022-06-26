@@ -17,7 +17,6 @@ public class InsertionSort {
             a[i] = sc.nextInt();
 
         }
-        //int a[] = {5,1,6,2,4,3};
         int temp,j;
         for (int i = 1; i < a.length; i++)
         {
