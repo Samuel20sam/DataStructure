@@ -2,16 +2,17 @@ package com.bridgelabz.datastructure;
 
 import java.util.Scanner;
 
-public class GuessingNumber <K extends Comparable<K>> {
-    K[] list;
+public class GuessingNumber {
+
+    Integer[] list;
     Scanner scan = new Scanner(System.in);
 
-    public void setRange(K range) {
-        list = (K[]) new Integer[(int) range];
+    public void setRange(int range) {
+        list = new Integer[range];
     }
 
-    public void add(K key){
-        list[(int) key] = key;
+    public void add(int key){
+        list[key] = key;
     }
 
     public void playGame() {
@@ -24,7 +25,10 @@ public class GuessingNumber <K extends Comparable<K>> {
 
     private void showNumber(int max, int min, int number) {
         System.out.println(number);
-        System.out.println("Enter your response 1 for matched// 0 for getting lower number// 2 for getting high number: ");
+        System.out.println("Enter your response " +
+                " 1 for getting matched" +
+                " 0 for getting a lower number" +
+                " 2 for getting a higher number: ");
         int response = scan.nextInt();
         if (response == 1) {
             System.out.println("Number matched");
@@ -38,12 +42,11 @@ public class GuessingNumber <K extends Comparable<K>> {
         }
     }
     public static void main(String[] args) {
-        GuessingNumber<Integer> game = new GuessingNumber<>();
+        GuessingNumber game = new GuessingNumber();
         Scanner scan = new Scanner(System.in);
         System.out.println("Enter the range of number you want me to guess :");
         int range = scan.nextInt();
         game.setRange(range);
-
         for (int i = 0; i < range; i++) {
             game.add(i);
         }
